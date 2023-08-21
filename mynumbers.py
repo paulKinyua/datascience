@@ -16,7 +16,7 @@ mult = 2*2
 print(mult)
 
 #exponential (power)
-expon = 3**4 # 3 ^ 4
+expon = 3**4 # 3 ^ 4  
 print(expon )
 
 #modulo (remainder of a division)
@@ -26,3 +26,5 @@ print(mod)
 #floor operation, divison that results into whole numbers
 floor = 30//7
 print(floor)
+
+#round off.. round(value, decimal)
