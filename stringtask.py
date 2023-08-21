@@ -10,7 +10,7 @@ print(sentence_two[16:30])
 
 #third question
 split_string = "The lazy dog; ran so fast; it hit the wall."
-x = split_string.split()
+x = split_string.split(";")
 print(len(x))
 
 #fourth question
