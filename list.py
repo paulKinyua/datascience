@@ -29,6 +29,9 @@ dummy_list[0]=1
 dummy_list.append("new values")
 print(dummy_list)
 
+# you can add to a specific index as well 
+#list.insert(index, value)
+
 #create a list called cars and include a number of brands
 cars = ["ford", "audi", "BMW", "Toyota", "oranges", "apples", 1, "banana"]
 print(cars[2])
@@ -45,3 +48,9 @@ print(cars[-5:-1])
 
 # Create a List of days of the Week. Print the day today using an index.
 print(weekdays[1])
+
+new_cars=["Volvo", "Ford", ["Toyota", "Mercedes", ["mazda", "Subaru"]], "Audi"]
+
+#insert audi between mazda and Subaru
+new_cars[2][2].insert(1,"audi")
+print (new_cars)

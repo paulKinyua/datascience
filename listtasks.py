@@ -11,9 +11,13 @@ trainees.append(56)
 print(trainees)
 
 #question 4
+#option 1, use insert to specify the index
+trainees[1][1].insert(1,"Mike")
+
+#option 2
 #reasign mary to mike then append mary
-trainees[1][1][1] = "Mike"
-trainees[1][1].append("Mary")
+#trainees[1][1][1] = "Mike"
+#trainees[1][1].append("Mary")
 print(trainees)
 
 #question 5
