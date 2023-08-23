@@ -50,7 +50,30 @@ print(cars[-5:-1])
 print(weekdays[1])
 
 new_cars=["Volvo", "Ford", ["Toyota", "Mercedes", ["mazda", "Subaru"]], "Audi"]
-
+model = ["SUV", "Minivan", "Sedan"]
+owners = ["Allan", "Ken", "Ivy"]
 #insert audi between mazda and Subaru
 new_cars[2][2].insert(1,"audi")
 print (new_cars)
+
+#adding 2 lists to each other
+# use extend function
+# use add function 
+new_cars.extend(model)
+#new_cars.__add__(owners)
+print(new_cars)
+
+#remove from a list
+#options :
+#remove , pop or del
+#remove will specify what you exactly want to remove
+new_cars.remove("Ford")
+print(new_cars)
+
+#pop will remove the specific index, if index is not specified, it will remove the last item on the list
+new_cars.pop()
+print(new_cars)
+
+#del will remove a specific index as well or clear the entire list
+del new_cars
+#print(new_cars)
