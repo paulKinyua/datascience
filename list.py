@@ -77,3 +77,5 @@ print(new_cars)
 #del will remove a specific index as well or clear the entire list
 del new_cars
 #print(new_cars)
+
+#symmetric difference finds the unique difference between 2 different sets
