@@ -42,7 +42,7 @@ elif(book_ratings["The Adventure"] < 2):
 
 #Suppose you have two sets: set_x and set_y. Write a code snippet using conditional statements to check if the symmetric difference between the two sets is not empty, using the ^ (symmetric difference) operator
 set_x = {1,2, 3, 4,5,6,7,8 ,9}
-set_y = {11, 12, 13, 14, 15 ,16}
+set_y = {1,2, 3, 4,5,6,7,8}
 
 if set_x ^ set_y:
     print (True) # at least one element is different between the sets.
