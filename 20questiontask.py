@@ -86,3 +86,34 @@ else:
     elif(grade < 40):
         print("Grade : E")
 
+#Write a program that takes as input the speed of a car e.g 80. 
+# If the speed is less than 70, it should print “Ok”. 
+# Otherwise, for every 5 km/s above the speed limit (70), 
+# it should give the driver one demerit point and print the total number of demerit points.
+speed = int(input("Enter speed: "))
+if(speed<=70):
+    print("ok")
+else:
+    #find difference
+    differnce = speed-70
+    #floor operation to find points
+    points = differnce//5
+    if(points >= 12 ):
+        print("License suspended")
+    else:
+        print(f"Points: {points}")
+
+#Write a program called stars. 
+# It should prompt the user for a number, and it should print the number of stars till the number entered.
+number_of_stars=int(input("Enter number of stars: "))
+list = list(range(1,(number_of_stars+1)))
+for i in list:
+    print("*"*i)
+
+#Write a program that calculates the total stock in a company from the array/list 
+# below if we know that the stock is the last digit in every array/list.
+
+prods = [["omo","30kshs","300"], ["milk","50kshs","200"],["bread","45kshs","359"], ["coffee","5kshs","79"]]
+totalstock = int(prods[0][2]) + int(prods[1][2]) +int(prods[2][2]) + int(prods[3][2])
+print(totalstock)
+
