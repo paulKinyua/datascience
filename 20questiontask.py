@@ -1,3 +1,5 @@
+import datetime
+
 #Write a program that prompts the user to enter the base and height of a triangle and returns its area.
 base = int(input("Enter Base: "))
 height=int ( input (" Enter Height :"))
@@ -117,3 +119,151 @@ prods = [["omo","30kshs","300"], ["milk","50kshs","200"],["bread","45kshs","359"
 totalstock = int(prods[0][2]) + int(prods[1][2]) +int(prods[2][2]) + int(prods[3][2])
 print(totalstock)
 
+#Write a program that takes the date of birth of a person and the program 
+# outputs the age in terms of years,months,days TODAY.
+DOB = input("Enter Date of Birth(dd/mm/yyyy): ")
+# age = date[-2:]+" "+str(((datetime.now() - datetime.strptime(date,'%d/%m/%Y')).days)/
+today = datetime.datetime.now()
+x = DOB.split("/")
+dateOB = datetime.datetime(int(x[2]), int(x[1]), int(x[0]))
+age = today-dateOB
+print(f"Days: {age.days}")
+years = age.days//365
+print(f"Years: {years}")
+months = years*12
+print(f"Months: {months}")
+
+
+#task 5 and task 12 are identical 
+num1 = int(input("Enter number 1: "))
+num2 = int(input("Enter number 2: "))
+num3 = int(input("Enter number 3: "))
+num4 = int(input("Enter number 4: "))
+
+if (num1>num2) and (num1>num3) and (num1>num4):
+    print(f"Largest number is {num1}")
+elif(num2>num1) and (num2>num3) and (num2>num4):
+    print(f"Largest number is {num2}")
+elif(num3>num1) and (num3>num2) and (num3>num4):
+    print(f"Largest number is {num3}")
+elif(num4>num1) and (num4>num2) and (num4>num3):
+    print(f"Largest number is {num4}")
+
+#task 13 and task 6 are similar
+counter  = list(range(1,4))
+for i in counter:
+    password = (input("Enter password: "))
+    email = (input("Enter email: "))
+    if(password == "Admin@123"):
+        if(email == "admin@mail.com"):
+            print("Access Granted")
+            break
+        else:
+            if(counter[2] == i):
+                print('Account Locked') 
+    else:
+        if(counter[2] == i):
+            print('Account Locked')
+
+#Write a program that takes input of 2 values and adds them. 
+# The program should only accept numbers and floats only 
+# or otherwise display an error “invalid character entered” and take the user to re-enter the inputs .
+range = list(range(0, 500))
+for i in range:
+    value_one=(input ("Please enter first value:"))
+    value_two = (input ("Please enter second value:"))
+    try:
+        print(int(value_one) + int(value_two))
+        break
+    except:
+        print("invalid character entered")
+
+#Write a program that takes input of someone's basic salary and benefits, 
+# adds them to find the gross salary then uses  the gross salary to find the NHIF. 
+value_one=int((input ("Please enter basic salary:")))
+value_two = int((input ("Please enter benefits:")))
+total = value_one+value_two
+if total <= 5999:
+    nhif=150
+    print("NHIF: 150")
+elif total >= 6000 and total<=7999:
+    nhif=300
+    print("NHIF: 300")
+elif total >= 8000 and total<=11999:
+    print("NHIF: 400")
+elif total >= 12000 and total<=14999:
+    nhif=500
+    print("NHIF: 500")
+elif total >= 15000 and total<=19999:
+    nhif=600
+    print("NHIF: 600")
+elif total >= 20000 and total<=24999:
+    nhif=750
+    print("NHIF: 750")
+elif total >= 25000 and total<=29999:
+    nhif=850
+    print("NHIF: 850") 
+elif total >= 30000 and total<=34999:
+    nhif=900
+    print("NHIF: 900")
+elif total >= 35000 and total<=39999:
+    nhif=950
+    print("NHIF: 950")
+elif total >= 40000 and total<=44999:
+    nhif = 1000
+    print("NHIF: 1,000")
+elif total >= 45000 and total<=49999:
+    nhif = 1100
+    print("NHIF: 1,100")
+elif total >= 50000 and total<=59999:
+    nhif = 1200
+    print("NHIF: 1,200")
+elif total >= 60000 and total<=69999:
+    nhif = 1300
+    print("NHIF: 1,300")
+elif total >= 70000 and total<=79999:
+    nhif = 1400
+    print("NHIF: 1,400")
+elif total >= 80000 and total<=89999:
+    nhif = 1500
+    print("NHIF: 1,500")
+elif total >= 90000 and total<=99999:
+    nhif = 1600
+    print("NHIF: 1,600")
+elif total >= 100000:
+    nhif = 1700
+    print("NHIF: 1,700")
+
+#Continue with the program above, then use  the gross salary to find the NSSF. 
+#To find the Kenya NSSF Rate using. Compute NSSF using 6% of the Gross Salary. BUT ONLY A MAXIMUM OF 18,000 CAN BE USED IN NSSF.
+nssf = (6/100)*total
+if(nssf>18000):
+    print("NSSF:18000")
+else:
+    print(nssf)
+
+#Continue with the same program and calculate an individual’s NHDF using:
+# i.e NHDF = gross_salary *  0.015
+nhdf=(total*0.015)
+print('NHDF:', nhdf )
+
+#Calculate the taxable income.
+#i.e taxable_income = gross salary - (NSSF + NHDF) 
+taxable_income = total - (nssf + nhdf) 
+print ("Taxable Income:", taxable_income)
+
+#Continue with the same program and find the person's PAYEE using the taxable income above.
+if(total<=24000):
+    payee = 2400
+    print("Personal Relief: 2,400")
+elif(total>24000 and total<32333):
+    payee = total * (25/100)
+    print("PAYEES: ", total * (25/100) ) 
+elif(total>32333):
+    payee = total * (30/100)
+    print("PAYEES: ", total * (30/100) )
+
+#Continue with the same program and calculate an individual’s Net Salary using:
+# net_salary = gross_salary - (nhif + nhdf +  nssf + payee)
+net_salary=total-(nhif+nhdf+nssf+(payee))
+print ('Net Salary', net_salary)
