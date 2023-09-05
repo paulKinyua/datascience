@@ -6,7 +6,7 @@ class Person():
     dob=""
     gender=""
     email=""
-    phone=""
+    phone=0
     details =[]
 
     #constructor -A special inbuilt method used to 
@@ -19,9 +19,15 @@ class Person():
         
     def add(self):
         self.details.append(self.name)
+        self.details.append(self.email)
+        self.details.append(self.gender)
+        self.details.append(self.phone)
         pass
 
-# calling functions from one class to another
-class Fetcher():
-    Person.name=""
-    Person.dob="23/43/66"
+p1 = Person("John", "Male", "John@gmail.com", 792664527)
+print(p1.phone)
+print(type(p1))
+print(p1.details)
+
+p1.add()
+print(p1.details)
