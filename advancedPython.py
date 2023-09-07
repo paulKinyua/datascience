@@ -123,3 +123,23 @@ with open(file_path, 'w') as file:
     file.write(result_string)
     
 # print(squared_numbers)
+
+#filter in the list only active blogs and change title to small case.
+#use only maps andcomprehensions
+blogs = [{"id":1, "title":"PCI", "description":"Staring...", "status":0},
+         {"id":2, "title":"TSI", "description":"Staring...", "status":0},
+         {"id":3, "title":"VS", "description":"Staring...", "status":1},
+         {"id":4, "title":"K4", "description":"Staring...", "status":0},
+         {"id":5, "title":"ZX", "description":"Staring...", "status":1}]
+
+active_blogs = [blog for blog in blogs if blog['status'] == 1]
+print(active_blogs)
+
+def turnLowecase(x):
+    w = x['title'].title()
+    x['title'] = w
+    return x
+
+lowecasemap  = map(turnLowecase, active_blogs)
+lowercase = list(lowecasemap)
+print(lowercase)
