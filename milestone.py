@@ -87,11 +87,14 @@ class Payroll:
         return(nhdf)
 
     def nssf_deductions(self, total):
-        nssf = (6/100)*total
-        if(nssf>18000):
-            return(18000)
-        else:
-            return(nssf)
+        nssf=0
+        if total < 18000:
+            nssf = (6/100)*total
+            
+        elif(nssf>=18000):
+            nssf = (6/100)*18000
+           
+        return(nssf)
         
     def gross_salary(self):
         total = self.basicSalary+self.benefits
