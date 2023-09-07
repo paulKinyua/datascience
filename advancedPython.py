@@ -94,6 +94,16 @@ print(even_numbers)
 
 #-------------------------------------------------------------------------------------------
 #test how long your program takes to loop through 10, 000 values against 10,000,000
+def tenThousand():
+    for i in range (1 , 10001 ):
+        print(i)
+    pass
+
+def tenMillion():
+    for i in range(1, 10000001):
+        print(i)
+    pass
+
 
 #create a list with random values and sort the list in ascending order without using .sort
 random = [4, 2, 1, 8, 3, 7, 9, 5]
