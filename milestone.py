@@ -97,7 +97,7 @@ class Payroll:
         total = self.basicSalary+self.benefits
         return total
 
-    def net_salary(total, nhif, nhdf, nssf, payee):
+    def net_salary(self, total, nhif, nhdf, nssf, payee):
         net_salary=total-(nhif+nhdf+nssf+(payee))
         return net_salary
 
@@ -109,5 +109,6 @@ nhif_deductions = payrollClass.nhif_deductions(grossSalary)
 nhdf_deductions = payrollClass.nhdf_deductions(grossSalary)
 nssf_deductions = payrollClass.nssf_deductions(grossSalary)
 netSalary = payrollClass.net_salary(grossSalary, nhif_deductions, nhdf_deductions, nssf_deductions, payee)
+# netSalary = payrollClass.net
 print({"Payee":payee, "NHIF":nhif_deductions, "NHDF":nhdf_deductions, "NSSF":nssf_deductions, "Net Salary":netSalary, "Gross Salary": grossSalary})
 
