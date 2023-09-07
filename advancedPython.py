@@ -96,6 +96,10 @@ print(even_numbers)
 #test how long your program takes to loop through 10, 000 values against 10,000,000
 
 #create a list with random values and sort the list in ascending order without using .sort
+random = [4, 2, 1, 8, 3, 7, 9, 5]
+sortedList = sorted(random)
+print(sortedList)
+
 
 #generate numbers between 1000 and 10,000 and write only the ones divisible by 7 in a .txt file
 numbers = list(range(1000, 10001))
