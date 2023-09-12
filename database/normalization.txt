@@ -1,0 +1,32 @@
+Database normalization is a process used in database design to organize data in a relational database efficiently and to minimize data redundancy. 
+The main goals of normalization are to reduce data anomalies (such as insertion, update, and deletion anomalies) and to improve data integrity. 
+It involves breaking down large tables into smaller, related tables and establishing relationships between them.
+
+The most common form of database normalization is based on a series of normal forms, with each subsequent normal form building upon the previous ones. 
+The most widely recognized normal forms are:
+
+---First Normal Form (1NF):
+
+-> Eliminate duplicate columns from the same table.
+-> Create a primary key for each table.
+-> Each column should contain only atomic (indivisible) values.
+
+---Second Normal Form (2NF):
+
+->Meet the requirements of 1NF.
+->Remove partial dependencies by ensuring that non-key attributes depend on the entire primary key. (Make sure the primry key can be used to uniquly identify a row.)
+
+---Third Normal Form (3NF):
+
+->Meet the requirements of 2NF.
+->Eliminate transitive dependencies by ensuring that non-key attributes depend only on the primary key and not on other non-key attributes.
+
+---Boyce-Codd Normal Form (BCNF):
+
+->Meet the requirements of 3NF.
+->Ensure that for every non-trivial functional dependency (X -> Y), X is a superkey (i.e., X uniquely determines Y).
+
+---Fourth Normal Form (4NF):
+
+->Meet the requirements of BCNF.
+->Handle multi-valued dependencies, which occur when a single value in one table corresponds to multiple values in another table.
