@@ -1,0 +1,51 @@
+2) SELECT o.OrderID, o.OrderDate, c.CustomerName, s.ShipperName, p.ProductName, od.Quantity, c.City, c.Address, c.PostalCode  FROM Orders o
+JOIN Customers c on c.CustomerID = o.CustomerID
+JOIN Shippers s on o.ShipperID = s.ShipperID
+JOIN OrderDetails od on od.OrderID = o.OrderID
+JOIN Products p on p.ProductID = od.ProductID
+
+3) SELECT o.OrderID, p.ProductName,  s.ShipperName  FROM Orders o
+JOIN Shippers s on o.ShipperID = s.ShipperID
+JOIN OrderDetails od on od.OrderID = o.OrderID
+JOIN Products p on p.ProductID = od.ProductID
+
+4) SELECT count(od.ProductID),  s.ShipperName  FROM Orders o
+JOIN Shippers s on o.ShipperID = s.ShipperID
+JOIN OrderDetails od on od.OrderID = o.OrderID
+GROUP BY o.ShipperID
+
+5) SELECT * FROM Customers WHERE CustomerName NOT LIKE '%son%'
+
+6) SELECT count(OrderID) FROM Orders WHERE OrderDate LIKE '%1997%';
+
+7) SELECT c.CustomerName, SUM(od.Quantity*p.Price) as price FROM Orders o
+JOIN OrderDetails od on od.OrderID = o.OrderID
+JOIN Products p on p.ProductID = od.ProductID
+JOIN Customers c on c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID
+ORDER BY price DESC
+
+8) SELECT s.SupplierName, SUM(od.Quantity) as Quantity  FROM Orders o
+JOIN OrderDetails od on od.OrderID = o.OrderID
+JOIN Products p on p.ProductID = od.ProductID
+JOIN Suppliers s on s.SupplierID = p.SupplierID
+GROUP BY s.SupplierID
+ORDER BY Quantity DESC
+
+9) SELECT p.ProductName, SUM(od.Quantity) as Quantity  FROM Orders o
+JOIN OrderDetails od on od.OrderID = o.OrderID
+JOIN Products p on p.ProductID = od.ProductID
+JOIN Suppliers s on s.SupplierID = p.SupplierID
+GROUP BY p.ProductID
+ORDER BY Quantity DESC
+
+10) 
+
+11) 
+
+12) SELECT c.CustomerName, sum(od.Quantity) as total FROM Customers c
+JOIN OrderDetails od on od.OrderID = o.OrderID
+JOIN Orders o on c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID
+
+13) 
