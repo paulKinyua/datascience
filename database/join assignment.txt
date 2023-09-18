@@ -39,13 +39,30 @@ JOIN Suppliers s on s.SupplierID = p.SupplierID
 GROUP BY p.ProductID
 ORDER BY Quantity DESC
 
-10) 
+10) SELECT SUBSTR(o.OrderDate, 6, 2) as Month, sum(od.Quantity) as total FROM Orders o
+JOIN OrderDetails od on od.OrderID = o.OrderID
+GROUP BY Month
+ORDER BY total DESC
 
-11) 
+11) SELECT o.OrderDate, sum(od.Quantity) as total FROM Orders o
+JOIN OrderDetails od on od.OrderID = o.OrderID
+GROUP BY o.OrderDate
+ORDER BY o.OrderDate DESC
 
 12) SELECT c.CustomerName, sum(od.Quantity) as total FROM Customers c
 JOIN OrderDetails od on od.OrderID = o.OrderID
 JOIN Orders o on c.CustomerID = o.CustomerID
 GROUP BY c.CustomerID
 
-13) 
+13) CREATE TABLE Payments(
+PaymentID int auto increment primary key,
+Amount double,
+OrderID int foreignkey,
+Date date)
+
+INSERT INTO Payments (PaymentID, Amount, OrderID, Date) VALUES
+("1", "2.0", "12", "12-03-1997"),
+("2", "25.0", "10", "12-05-1997"),
+("3", "212.0", "92", "15-02-1996"),
+("4", "800.0", "55", "18-05-1998"),
+("5", "102.0", "32", "14-02-1997")
