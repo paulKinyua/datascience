@@ -7,33 +7,64 @@ class dbService():
     password = 'Mamamia11'
 
     def __init__(self):
+        self.database='myduka'
+        self.user='postgres'
+        self.password='Mamamia11'
+        self.connection = psycopg2.connect(database=self.database, user=self.user, password=self.password)
+        self.cursor = self.connection.cursor()
         pass
 
-    def get_data(table):
-        database = 'myduka'
-        user = 'postgres'
-        password = 'Mamamia11'
+    def get_data(self, table):
+        # database = 'myduka'
+        # user = 'postgres'
+        # password = 'Mamamia11'
 
         # connecting to the database
-        connection = psycopg2.connect(database=database, user=user, password=password)
+        # connection = psycopg2.connect(database=self.database, user=self.user, password=self.password)
 
         # instantiating the cursor
-        cursor = connection.cursor()
+        # cursor = self.connection.cursor()
 
         # query to select a table
         fetch_all = "SELECT * FROM "+table
-        cursor.execute(fetch_all)
+        self.cursor.execute(fetch_all)
 
         # fetching all the rows
-        rows = cursor.fetchall()
+        rows = self.cursor.fetchall()
         return(rows)
+        
+
+    def addProduct(self, id, name, buying_price, selling_price, stock_quantity):
+        insert = f"INSERT INTO products (id, name, buying_price, selling_price, stock_quantity) VALUES ('{id}', '{name}', {buying_price}, {selling_price}, {stock_quantity})"
+        
+        #execute the query 
+        self.cursor.execute(insert)
+
+        # saving the changes to the database
+        self.connection.commit()
+        return "success"
+
+
+    def addSale(self, id, pid, quantity):
+        insert = f"INSERT INTO sales (id, pid, quantity) VALUES ({id}, {pid}, {quantity})"
+        
+        #execute the query 
+        self.cursor.execute(insert)
+
+        # saving the changes to the database
+        self.connection.commit()
+        return "success"
         pass
 
-
-service= dbService
+service= dbService()
 data=service.get_data(input("Enter Table Name:"))
-print(data)
+print(str(data))
 
+addProduct = service.addProduct(input("Enter ID:"), input("Enter Name:"), input("Enter Buying price:"), input("Enter Selling price:"), input("Enter Stock Quantity:"))
+print(addProduct)
+
+newSale = service.addSale(input("Enter ID:"), input("Enter Product ID:"), input("Enter Quantity:"))
+print(newSale)
 
 # storing all the information
 # database = 'myduka'
