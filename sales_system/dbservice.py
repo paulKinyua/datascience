@@ -56,7 +56,22 @@ class dbService():
         return "success"
         pass
 
+    def remaining_stock(self):
+#         "SELECT p.name, (p.stock_quantity - (SUM(s.quantity))) rem_stock
+    # FROM sales s
+#   JOIN products p ON p.product_id = s.product_id 
+#   GROUP BY product_id;"
+
+        query = "SELECT p.name, (p.stock_quantity - s.quantity) as qty FROM products p JOIN sales s on p.id=s.pid WHERE (p.stock_quantity - s.quantity) > 0 "
+        self.cursor.execute(query)
+
+        # fetching all the rows
+        rows = self.cursor.fetchall()
+        return(rows)
+        pass
+
 service= dbService()
+print(service.remaining_stock())
 data=service.get_data(input("Enter Table Name:"))
 print(str(data))
 
