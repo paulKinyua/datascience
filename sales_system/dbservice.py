@@ -35,7 +35,7 @@ class dbService():
         
 
     def addProduct(self, id, name, buying_price, selling_price, stock_quantity):
-        insert = f"INSERT INTO products (id, name, buying_price, selling_price, stock_quantity) VALUES ('{id}', '{name}', {buying_price}, {selling_price}, {stock_quantity})"
+        insert = f"INSERT INTO products (name, buying_price, selling_price, stock_quantity) VALUES ( '{name}', {buying_price}, {selling_price}, {stock_quantity})"
         
         #execute the query 
         self.cursor.execute(insert)
@@ -46,7 +46,7 @@ class dbService():
 
 
     def addSale(self, id, pid, quantity):
-        insert = f"INSERT INTO sales (id, pid, quantity) VALUES ({id}, {pid}, {quantity})"
+        insert = f"INSERT INTO sales (pid, quantity) VALUES ( {pid}, {quantity})"
         
         #execute the query 
         self.cursor.execute(insert)
@@ -62,7 +62,7 @@ class dbService():
 #   JOIN products p ON p.product_id = s.product_id 
 #   GROUP BY product_id;"
 
-        query = "SELECT p.name, (p.stock_quantity - s.quantity) as qty FROM products p JOIN sales s on p.id=s.pid WHERE (p.stock_quantity - s.quantity) > 0 "
+        query = "SELECT p.id, p.name, (p.stock_quantity - SUM(s.quantity)) as qty FROM sales s JOIN products p on p.id=s.pid WHERE (p.stock_quantity - s.quantity) > 0 GROUP BY p.id"
         self.cursor.execute(query)
 
         # fetching all the rows
