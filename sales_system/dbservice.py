@@ -57,10 +57,6 @@ class dbService():
         pass
 
     def remaining_stock(self):
-#         "SELECT p.name, (p.stock_quantity - (SUM(s.quantity))) rem_stock
-    # FROM sales s
-#   JOIN products p ON p.product_id = s.product_id 
-#   GROUP BY product_id;"
 
         query = "SELECT p.id, p.name, (p.stock_quantity - SUM(s.quantity)) as qty FROM sales s JOIN products p on p.id=s.pid WHERE (p.stock_quantity - s.quantity) > 0 GROUP BY p.id"
         self.cursor.execute(query)
